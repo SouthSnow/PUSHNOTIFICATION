@@ -4,7 +4,7 @@
 $deviceToken = 'd9b1529b04e5e1fcf5daf3cfe77773b7ef823c60924d9e4558fc1f0e481aaa5b';
 
 // Put your private key's passphrase here:
-$passphrase = 'pushchat';
+$passphrase = '123456';
 
 // Put your alert message here:
 $message = 'My first push notification!';
@@ -17,7 +17,7 @@ stream_context_set_option($ctx, 'ssl', 'passphrase', $passphrase);
 
 // Open a connection to the APNS server
 $fp = stream_socket_client(
-	"udp://127.0.0.1:8080", $err,
+	'ssl://gateway.sandbox.push.apple.com:2195', $err,
 	$errstr, 60, STREAM_CLIENT_CONNECT|STREAM_CLIENT_PERSISTENT, $ctx);
 
 if (!$fp)
